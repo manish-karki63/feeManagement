@@ -1,0 +1,29 @@
+footer{
+	background: #00004d;
+	color: white;
+	padding: 15px 0;
+	text-align: center;
+	margin-top: 6px;
+}
+footer ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+footer ul.footer-widget li{
+	display: inline-block;
+	padding-right: 15px;
+}
+
+.footer-widget .icon i{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background: white;
+	border: 1px solid #00004d;
+	border-radius: 100%;
+	color: #00004d;
+	text-align: center;
+	line-height: 38px;
+	margin-right: 5px;
+}

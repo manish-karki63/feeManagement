@@ -1,0 +1,40 @@
+.fee-form h2{
+	margin-bottom: 30px;
+}
+.fee-form .input-group{
+	padding-bottom: 20px;
+}
+.fee-form label{
+	display: block;
+	font-weight: 600;
+	font-size: 18px;
+	text-transform: capitalize;
+	margin-bottom: 15px;
+}
+.input-group input{
+	width:60%;
+	padding:10px 30px;
+	border-radius: 5px;
+	outline:0;
+	border: 1px solid #eee;
+	font-weight: 500;
+	font-size: 16px;
+}
+.fee-form .fee-form-wrapper{
+	width: 600px;
+	margin: 0 auto;
+}
+.input-group .faculty{
+	float: left;
+	width: 50%;
+}
+.input-group .semester{
+	float: left;
+	width: 50%;
+}
+.input-group:before,
+.input-group:after{
+	display: block;
+	content:'';
+	clear: both;
+}

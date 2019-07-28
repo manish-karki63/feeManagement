@@ -1,0 +1,21 @@
+.button input{
+	background: #00004d;
+	color:white;
+	text-transform:uppercase;
+	line-height:1;
+	padding:15px 45px;
+	outline:0;
+	border: 1px solid transparent;
+	font-weight: 500;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 25px;
+	border: 2px solid #00004d;
+	transition: all 0.3s ease;
+}
+.button input:hover{
+	transform: scale(0.9);
+}
+.button a{
+	text-decoration: none;
+}
