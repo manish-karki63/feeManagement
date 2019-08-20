@@ -6,6 +6,11 @@
 		<link rel='stylesheet' href='../CSS/footer.css' type='text/css'/>
 		<link rel='stylesheet' href='../CSS/button.css' type='text/css'/>
 		<link rel="stylesheet" href="../CSS/fontAwesome/css/font-awesome.css" type="text/css"/>
+		<script type='text/javascript'>
+			function confrim(){
+				
+			}
+		</script>
 	</head>
 	<body>
 		<div class="inner-header-wrapper" style="">
