@@ -17,9 +17,10 @@
 				set password = '$password'
 				where exam_roll = '$roll'";
 				mysqli_query($connect,$update) or die('Update Error');
+				$cpsw = '';
 			}
 		}else{
-			die('Confirm Password');
+			
 		}
 	}
 ?>

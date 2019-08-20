@@ -9,10 +9,11 @@
 		$faculty = $_POST['faculty'];
 		$password = $_POST['password'];
 		$cpassword = $_POST['cpassword'];
+		$batch = $_POST['batch'];
 		if($password == $cpassword)
 		{
 			$insert = "insert into register 
-			values('$name','$roll','$phone','$email','$faculty','$password')";
+			values('$name','$roll','$phone','$email','$faculty','$password','$batch')";
 			mysqli_query($connect,$insert);
 		}
 		else{

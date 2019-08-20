@@ -1,4 +1,5 @@
 <?php
+	$cpsw = '';
 	include('Database/password_reset_db.php');
 ?>
 <!DOCTYPE html>
@@ -71,7 +72,8 @@
 					<div class="input-group">
 						<label> Confirm Password</label> 
 						<input type='password' name='cpassword' placeholder="Your Password Here"/>
-						<span class="cpassword-msg" style="color: red;"></span>
+						<?php if($cpsw!=''){ ?>
+						<span class="cpassword-msg" style="color: red;"></span><?php } ?>
 					</div>
 					<div class="button">
 						<input type="submit" name="reset" value="Reset Password"/>

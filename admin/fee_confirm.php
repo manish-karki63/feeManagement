@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>FEE Details</title>
-		<link rel='stylesheet' href='CSS/header.css' type='text/css'/>
-		<link rel='stylesheet' href='CSS/footer.css' type='text/css'/>
-		<link rel='stylesheet' href='CSS/button.css' type='text/css'/>
-		<link rel='stylesheet' href='CSS/fee_details.css' type='text/css'/>
-		<link rel="stylesheet" href="CSS/fontAwesome/css/font-awesome.css" type="text/css"/>
+		<title>Fee Confirm</title>
+		<link rel='stylesheet' href='../CSS/header.css' type='text/css'/>
+		<link rel='stylesheet' href='../CSS/footer.css' type='text/css'/>
+		<link rel='stylesheet' href='../CSS/button.css' type='text/css'/>
+		<link rel="stylesheet" href="../CSS/fontAwesome/css/font-awesome.css" type="text/css"/>
 	</head>
 	<body>
 		<div class="inner-header-wrapper" style="">
 			<div class="logo">
-				<a href="#"><img src="images/logo.png" alt="logo"/></a>
+				<a href="#"><img src="../images/logo.png" alt="logo"/></a>
 			</div>
 			<div class="inner-header">
 				<div class="title">
@@ -19,9 +18,9 @@
 				</div>
 				<div class="nav-menu">
 					<ol>
-						<li><a href="fee_info.php">Home</a></li>
-						<li><a href="feedetails.php">Fee Detail</a></li>
-						<li><a href="login.php">Sign Out</a></li>
+						<li><a href="fee_confirm.php">Home</a></li>
+						<li><a href="input_fee.php">Fee Detail</a></li>
+						<li><a href="admin_login.php">Sign Out</a></li>
 					</ol>
 				</div>
 			</div>
@@ -29,20 +28,29 @@
 		
 		<div class='detail'>
 			<table>
-				<?php
-					session_start();
-					$roll = $_SESSION['roll'];
-					$connect = mysqli_connect('localhost','root','','fee_management');
-					$select = "select * from payment_details where exam_roll = '$roll'";
-					$data = mysqli_query($connect,$select) or die('Selection Error');
-					$arr = mysqli_fetch_assoc($data);
-					echo "<tr><td>Name: </td><td>".$_SESSION['name']."</td></tr>";
-					echo "<tr><td>Exam Roll:</td><td>".$arr['exam_roll']."</td></tr>";
-					echo "<tr><td>Paid Fee:</td><td>".$arr['paid_fee']."</td></tr>";
-					echo "<tr><td>Exam Fee:</td><td>".$arr['exam_fee']."</td></tr>";
-					echo "<tr><td>Full Fee:</td><td>".$arr['full_fee']."</td></tr>";
-					echo "<tr><td>Scholarship:</td><td>".$arr['scholarship']."</td></tr>";
-				?>
+				<tr>
+					<th>Exam Roll</th>
+					<th>Faculty</th>
+					<th>Semester</th>
+					<th>Image</th>
+					<th></th>
+					<th></th>
+				</tr>
+		<?php
+			$connect = mysqli_connect('localhost','root','','fee_management') or die('Database Connection Error');
+			$select = "select * from fee_payment";
+			$data = mysqli_query($connect,$select) or die('Table Selection Error');
+			while($arr = mysqli_fetch_assoc($data))
+			{
+				echo "<tr><td>".$arr['exam_roll']."</td>";
+				echo "<td>".$arr['faculty']."</td>";
+				echo "<td>".$arr['semester']."</td>";
+				$img = $arr['image'];
+				echo "<td><img src='../Userimg/$img' alt='Bank Slip'></td>";
+				echo "<td><input type='button' name='confirm' value='Confirm'/></td>";
+				echo "<td><input type='button' name='delete' value='Delete'/></td></tr>";
+			}
+		?>
 			</table>
 		</div>
 		

@@ -1,0 +1,16 @@
+.detail{
+	width: 40%;
+	margin: 94px auto;
+}
+.detail table{
+	font-size: 16pt;
+}
+.detail table tr td{
+	border: 2px solid teal;
+	padding: 10px;
+	width: 160px;
+	text-align: center;
+}
+.detail table tr td:first-child{
+	font-weight: bold; 
+}

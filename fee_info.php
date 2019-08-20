@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$a=array('1st','2nd','3rd','4th','5th','6th','7th','8th');
 	$val=array('one','two','three','four','five','six','seven','eight');
 	include('Database/fee_db.php');
@@ -18,18 +19,18 @@
 				if(roll.length<7)
 				{
 					control.nextSibling.innerHTML = "Incomplete Roll";
-					
+					document.getElementById('value').innerHTML = "";
 				}else{
 					control.nextSibling.innerHTML = "";
-				ajax = new XMLHttpRequest();
-				ajax.onreadystatechange = function(){
-					if(this.readyState == 4 && this.status == 200){
-						document.getElementById('email').value = this.responseText;
-					}
-				};
-				ajax.open("GET","emailFromDb.php?roll="+roll,true);
-				ajax.send();
-			}
+					ajax = new XMLHttpRequest();
+					ajax.onreadystatechange = function(){
+						if(this.readyState == 4 && this.status == 200){
+							document.getElementById('value').innerHTML = this.responseText;
+						}
+					};
+					ajax.open("GET","AJAX/fromdbtofee.php?roll="+roll,true);
+					ajax.send();
+				}
 			}
 		</script>
 	</head>
@@ -55,27 +56,19 @@
 		<!--FEE Form-->
 		<div class="fee-form">
 			<div class="fee-form-wrapper">
+				<div class="heading">
+					<?php 
+						echo "WELCOME ".$_SESSION['name'];
+					?>
+				</div>
 				<h3>Enter Fee Details</h3>
 				<form action='' method='post' enctype='multipart/form-data'>
-					<div class='input-group'>
-						<label>Name</label>
-						<input type='text' name='name' placeholder="Your Name Here"/>
-						<span class="name-msg" style="color: red;"></span>
-					</div>
 					<div class='input-group'>
 						<label>Exam Roll</label>
 						<input type='text' name='roll' placeholder="Your Roll Here" onchange="returnEmail(this);"/><span class="roll-msg" style="color: red;"></span>
 					</div>
-					<div class="input-group">
-						<label>Email</label>
-						<input type='email' id="email" name='email' placeholder="Your Email Here"/>
-						<span class="email-msg" style="color: red;"></span>
-					</div>
-					<div class="input-group">
-						<label>Batch</label>
-						<input type='text' name='batch' placeholder="Your Batch Here"/>
-						<span class="batch-msg" style="color: red;"></span>
-					</div>
+					<span id='value'>
+					</span>
 					<div class="input-group">
 						<div class="faculty">
 							<label>Faculty</label>
@@ -93,6 +86,11 @@
 							?>
 							</select>
 						</div>
+					</div>
+					<div class="input-group">
+						<label>Batch</label>
+						<input type='text' name='batch' placeholder="Your Batch Here"/>
+						<span class="batch-msg" style="color: red;"></span>
 					</div>
 					<div class="input-group">
 						<label>Image</label> 

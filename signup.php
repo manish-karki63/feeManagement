@@ -64,6 +64,11 @@
 						</div>
 					</div>
 					<div class="input-group">
+						<label>Batch</label> 
+						<input type='text' name='batch' placeholder="Your Batch Year Here"/>
+						<span class="batch-msg" style="color: red;"></span>
+					</div>
+					<div class="input-group">
 						<label>Password</label> 
 						<input type='password' name='password' placeholder="Your Password Here"/>
 						<span class="password-msg" style="color: red;"></span>

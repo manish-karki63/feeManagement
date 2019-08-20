@@ -7,53 +7,39 @@
 			$message = "Login First";
 		}
 	}
-	require('Database/login_db.php' );
 	if(isset($_POST['login']))
 	{
-		$select = "select exam_roll,name,email,password from register";
-		$data = mysqli_query($connect,$select) or die('Selection Error');
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-		$_SESSION['email']=$email;
-		$_SESSION['password']=$password;
-		while($arr=mysqli_fetch_assoc($data))
-		{
-			if($_SESSION['email'] == $arr['email'] && $_SESSION['password'] == $arr['password']){
-				$_SESSION['name']=$arr['name'];
-				$_SESSION['roll']=$arr['exam_roll'];
-				header('refresh:0,URL=fee_info.php');
-				exit;
-			}
-			else{
-				$message = "Username or Password Invalid";
-			}
+		$_SESSION['ademail']=$_POST['email'];
+		$_SESSION['adpassword']=$_POST['password'];
+		if($_SESSION['ademail'] == 'manish.karki33@gmail.com' && $_SESSION['adpassword'] == 'manish'){
+			header('refresh:0,URL=fee_confirm.php');
+			exit;
+		}
+		else{
+			$message = "Username or Password Invalid";
 		}	
 	}
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Login</title>
-		<link rel='stylesheet' href='CSS/header.css' type='text/css'/>
-		<link rel='stylesheet' href='CSS/login.css' type='text/css'/>
-		<link rel='stylesheet' href='CSS/button.css' type='text/css'/>
-		<link rel='stylesheet' href='CSS/footer.css' type='text/css'/>
-		<link rel="stylesheet" href="CSS/fontAwesome/css/font-awesome.css" type="text/css"/>
+		<title>Admin Login</title>
+		<link rel='stylesheet' href='../CSS/header.css' type='text/css'/>
+		<link rel='stylesheet' href='../CSS/login.css' type='text/css'/>
+		<link rel='stylesheet' href='../CSS/button.css' type='text/css'/>
+		<link rel='stylesheet' href='../CSS/footer.css' type='text/css'/>
+		<link rel="stylesheet" href="../CSS/fontAwesome/css/font-awesome.css" type="text/css"/>
 	</head>
 	<body>
 		<div class="inner-header-wrapper" style="">
 			<div class="logo">
-				<a href="#"><img src="images/logo.png" alt="logo"/></a>
+				<a href="#"><img src="../images/logo.png" alt="logo"/></a>
 			</div>
 			<div class="inner-header">
 				<div class="title">
 					<a href="">FEE MANAGEMENT SYSTEM</a>
 				</div>
 				<div class="nav-menu">
-					<ol>
-						<li><a href="login.php">Login</a></li>
-						<li><a href="signup.php">Sign Up</a></li>
-					</ol>
 				</div>
 			</div>
 		</div>
@@ -77,8 +63,6 @@
 					</div>
 					<div class="button">
 						<input type="submit" name="login" value="Login"/>
-						<a href='reset_password.php'>
-						<input type="button" name="forgetpsw" value="Forget Password"/></a>
 					</div>
 				</form>
 			</div><!--login-form-wrapper-->
