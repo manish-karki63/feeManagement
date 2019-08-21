@@ -10,7 +10,7 @@
 	require('Database/login_db.php' );
 	if(isset($_POST['login']))
 	{
-		$select = "select exam_roll,name,email,password from register";
+		$select = "select exam_roll,name,email,password,batch from register";
 		$data = mysqli_query($connect,$select) or die('Selection Error');
 		$email = $_POST['email'];
 		$password = $_POST['password'];
@@ -21,6 +21,7 @@
 			if($_SESSION['email'] == $arr['email'] && $_SESSION['password'] == $arr['password']){
 				$_SESSION['name']=$arr['name'];
 				$_SESSION['roll']=$arr['exam_roll'];
+				$_SESSION['batch']=$arr['batch'];
 				header('refresh:0,URL=fee_info.php');
 				exit;
 			}

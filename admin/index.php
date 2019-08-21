@@ -1,6 +1,8 @@
 <?php
 	session_start();
-	if(isset($_SESSION['ademail']) && isset($_SESSION['adpassword'])){}
+	if(isset($_SESSION['ademail']) && isset($_SESSION['adpassword'])){
+		header("location:fee_confirm.php");
+	}
 	else{
 		header("location:admin_login.php?error=login_first");
 		exit;

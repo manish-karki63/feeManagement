@@ -1,3 +1,6 @@
+<?php
+	include('../Database/admin_confirm.php');
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,11 +9,6 @@
 		<link rel='stylesheet' href='../CSS/footer.css' type='text/css'/>
 		<link rel='stylesheet' href='../CSS/button.css' type='text/css'/>
 		<link rel="stylesheet" href="../CSS/fontAwesome/css/font-awesome.css" type="text/css"/>
-		<script type='text/javascript'>
-			function confrim(){
-				
-			}
-		</script>
 	</head>
 	<body>
 		<div class="inner-header-wrapper" style="">
@@ -32,6 +30,7 @@
 		</div>
 		
 		<div class='detail'>
+			<form action='' method='post'>
 			<table>
 				<tr>
 					<th>Exam Roll</th>
@@ -46,17 +45,21 @@
 			$select = "select * from fee_payment";
 			$data = mysqli_query($connect,$select) or die('Table Selection Error');
 			while($arr = mysqli_fetch_assoc($data))
-			{
-				echo "<tr><td>".$arr['exam_roll']."</td>";
-				echo "<td>".$arr['faculty']."</td>";
-				echo "<td>".$arr['semester']."</td>";
-				$img = $arr['image'];
-				echo "<td><img src='../Userimg/$img' alt='Bank Slip'></td>";
-				echo "<td><input type='button' name='confirm' value='Confirm'/></td>";
-				echo "<td><input type='button' name='delete' value='Delete'/></td></tr>";
-			}
+			{	
+				$roll = $arr['exam_roll'];?>
+				<tr><td><input type='text' name='roll' value='<?php echo $roll; ?>'</td>
+				<td><?php echo $arr['faculty'];?></td>
+				<td><?php echo $arr['semester']; ?></td>
+				<?php $img = $arr['image'];?>
+				<td><div class="image-wrapper">
+					<img src='../Userimg/<?php echo $img; ?>' alt='Bank Slip' width='120'/>
+					</div></td>
+				<td><input type='submit' name='confirm' value='Confirm'/></td>
+				<td><a href="<?php echo 'delete.php?exam_roll='.$roll;?>">Delete</a></td></tr>
+		<?php	}
 		?>
 			</table>
+			</form>
 		</div>
 		
 		

@@ -63,12 +63,26 @@
 				</div>
 				<h3>Enter Fee Details</h3>
 				<form action='' method='post' enctype='multipart/form-data'>
-					<div class='input-group'>
-						<label>Exam Roll</label>
-						<input type='text' name='roll' placeholder="Your Roll Here" onchange="returnEmail(this);"/><span class="roll-msg" style="color: red;"></span>
-					</div>
-					<span id='value'>
-					</span>
+					<?php
+						$exam_roll = $_SESSION['roll'];
+						echo "<div class='input-group'>
+							<label>Exam Roll</label>
+							<input type='text' name='roll' value='$exam_roll' readonly/><span class='roll-msg' style='color: red;'></span>
+						</div>";
+						$email = $_SESSION['email'];
+						echo "<div class='input-group'>
+							<label>Email</label>
+							<input type='email' name='email' value='$email' readonly/>
+							</div>";
+					?>
+					<?php
+						$batch = $_SESSION['batch'];
+					echo "<div class='input-group'>
+						<label>Batch</label>
+						<input type='text' name='batch' value='$batch' readonly/>
+						<span class='batch-msg' style='color: red;'></span>
+					</div>";
+					?>
 					<div class="input-group">
 						<div class="faculty">
 							<label>Faculty</label>
@@ -86,11 +100,6 @@
 							?>
 							</select>
 						</div>
-					</div>
-					<div class="input-group">
-						<label>Batch</label>
-						<input type='text' name='batch' placeholder="Your Batch Here"/>
-						<span class="batch-msg" style="color: red;"></span>
 					</div>
 					<div class="input-group">
 						<label>Image</label> 
