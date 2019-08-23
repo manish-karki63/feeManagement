@@ -1,6 +1,6 @@
 .detail{
 	width: 40%;
-	margin: 94px auto;
+	margin: 68px auto;
 }
 .detail table{
 	font-size: 16pt;
@@ -13,4 +13,22 @@
 }
 .detail table tr td:first-child{
 	font-weight: bold; 
+}
+.btn{
+	margin-top: 40px;
+}
+.btn a{
+	text-decoration: none;
+	background: #00004d;
+	color:white;
+	text-transform:uppercase;
+	line-height:1; 
+	padding:15px 45px;
+	outline:0;
+	border: 1px solid transparent;
+	font-weight: 500;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 25px;
+	border: 2px solid #00004d;
 }

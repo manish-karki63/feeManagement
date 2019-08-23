@@ -4,7 +4,6 @@
 		<title>FEE Details</title>
 		<link rel='stylesheet' href='CSS/header.css' type='text/css'/>
 		<link rel='stylesheet' href='CSS/footer.css' type='text/css'/>
-		<link rel='stylesheet' href='CSS/button.css' type='text/css'/>
 		<link rel='stylesheet' href='CSS/fee_details.css' type='text/css'/>
 		<link rel="stylesheet" href="CSS/fontAwesome/css/font-awesome.css" type="text/css"/>
 	</head>
@@ -36,14 +35,28 @@
 					$select = "select * from payment_details where exam_roll = '$roll'";
 					$data = mysqli_query($connect,$select) or die('Selection Error');
 					$arr = mysqli_fetch_assoc($data);
+					$due = $arr['full_fee'] - $arr['paid_fee'];
+					if(isset($_POST['submit'])){
+						
+					}
 					echo "<tr><td>Name: </td><td>".$_SESSION['name']."</td></tr>";
 					echo "<tr><td>Exam Roll:</td><td>".$arr['exam_roll']."</td></tr>";
 					echo "<tr><td>Paid Fee:</td><td>".$arr['paid_fee']."</td></tr>";
 					echo "<tr><td>Exam Fee:</td><td>".$arr['exam_fee']."</td></tr>";
 					echo "<tr><td>Full Fee:</td><td>".$arr['full_fee']."</td></tr>";
+					echo "<tr><td>Due:</td><td>".$due."</td></tr>";
 					echo "<tr><td>Scholarship:</td><td>".$arr['scholarship']."</td></tr>";
 				?>
 			</table>
+			<div class="btn">
+				<select name='semester'>
+				<?php for($i=1;$i<=8;$i++){?>
+				<option value="<?php echo $i;?>">
+				<?php echo "Upto ".$i." Sem";?></option>
+				<?php }?>
+				</select>
+				<button>Go</button>
+			</div>
 		</div>
 		
 		

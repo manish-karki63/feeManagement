@@ -14,7 +14,6 @@
 	if(isset($_POST['update']))
 	{
 		$roll=$_POST['roll'];
-		$paid=$_POST['paid_fee'];
 		$exam=$_POST['exam_fee'];
 		$scholarship=$_POST['scholarship'];
 		$update = "update payment_details

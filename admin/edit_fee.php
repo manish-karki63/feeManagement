@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="../CSS/fontAwesome/css/font-awesome.css" type="text/css"/>
 	</head>
 	<body>
+	<div class='body' style='height: 578px;'>
 		<div class="inner-header-wrapper" style="">
 			<div class="logo">
 				<a href="#"><img src="../images/logo.png" alt="logo"/></a>
@@ -39,25 +40,18 @@
 			<div class="signup-form-wrapper">
 				<h3>Fee Details of Student</h3>
 				<form action='' method='post' enctype=''>
-					<div class='input-group'>
+					<?php 
+						$roll = $_GET['exam_roll'];
+					echo "<div class='input-group'>
 						<label>Exam Roll</label>
-						<input type='text' name='roll' placeholder='Exam Roll Here'/>
+						<input type='text' name='roll' value='$roll' readonly/>
 						<span class='roll-msg' style='color: red;'></span>
-					</div>
-					<div class="input-group">
-						<label>Paid Fee</label> 
-						<input type='text' name='paid_fee' placeholder="Paid Fee Here"/>
-						<span class="paid-msg" style="color: red;"></span>
-					</div>
+					</div>";
+					?>
 					<div class="input-group">
 						<label>Exam Fee</label> 
 						<input type='text' name='exam_fee' placeholder="Exam Fee Here"/>
 						<span class="Exam-msg" style="color: red;"></span>
-					</div>
-					<div class="input-group">
-						<label>Full Fee</label> 
-						<input type='text' name='full_fee' placeholder="Full Fee Here"/>
-						<span class="full-msg" style="color: red;"></span>
 					</div>
 					<div class="input-group">
 						<label>Scholarship</label> 
@@ -65,11 +59,12 @@
 						<span class="scholarship-msg" style="color: red;"></span>
 					</div>
 					<div class="button">
-						<input type="submit" name="submit" value="Insert"/>
+						<input type="submit" name="update" value="Update"/>
 					</div>
 				</form>
 			</div><!--form-wrapper-->
 		</div><!--form-->
+		</div>
 		
 		
 		<!-- Footer Section -->

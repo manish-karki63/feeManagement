@@ -10,6 +10,9 @@
 		<link rel='stylesheet' href='CSS/button.css' type='text/css'/>
 		<link rel='stylesheet' href='CSS/footer.css' type='text/css'/>
 		<link rel="stylesheet" href="CSS/fontAwesome/css/font-awesome.css" type="text/css"/>
+		<script type="text/javascript" src="Javascript/signup.js">
+			
+		</script>
 	</head>
 	<body>
 		<div class="inner-header-wrapper" style="">
@@ -33,11 +36,11 @@
 		<div class="signup-form">
 			<div class="signup-form-wrapper">
 				<h3>Enter Your Details</h3>
-				<form action='' method='post' enctype=''>
+				<form action='' method='post' enctype='' onsubmit="return validate(this);">
 					<div class='input-group'>
 						<label>Name</label>
 						<input type='text' name='name' placeholder="Your Name Here"/>
-						<span class="name-msg" style="color: red;"></span>
+						<span class="namemsg" style="color: red;"></span>
 					</div>
 					<div class='input-group'>
 						<label>Exam Roll</label>

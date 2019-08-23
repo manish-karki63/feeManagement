@@ -1,0 +1,59 @@
+.detail{
+	width: 95%;
+	margin: 10px auto;
+}
+.detail table{
+	font-size: 16pt;
+}
+.detail table tr th{
+	border: 2px solid teal;
+	padding: 10px;
+	width: 140px;
+	text-align: center;
+}
+.detail table tr td{
+	border: 2px solid teal;
+	padding: 10px;
+	width: 140px;
+	text-align: center;
+}
+.detail table tr td:first-child{
+	font-weight: bold; 
+}
+.btn{
+	margin: 40px 0;
+}
+.detail table a{
+	text-decoration: none;
+	background: #00004d;
+	color:white;
+	text-transform:uppercase;
+	line-height:1; 
+	padding:5px 25px;
+	outline:0;
+	border: 1px solid transparent;
+	font-weight: 500;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 15px;
+	border: 2px solid #00004d;
+}
+.detail .btn a{
+	text-decoration: none;
+	background: #00004d;
+	color:white;
+	text-transform:uppercase;
+	line-height:1; 
+	padding:15px 45px;
+	outline:0;
+	border: 1px solid transparent;
+	font-weight: 500;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 25px;
+	border: 2px solid #00004d;
+}
+.image-wrapper img{
+	width: 100%;
+	height:200px;
+}

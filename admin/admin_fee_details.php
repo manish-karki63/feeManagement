@@ -1,13 +1,10 @@
-<?php
-	include('../Database/input_fee_db.php');
-?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Input FEE</title>
 		<link rel='stylesheet' href='../CSS/header.css' type='text/css'/>
 		<link rel='stylesheet' href='../CSS/footer.css' type='text/css'/>
-		<link rel='stylesheet' href='../CSS/signup.css' type='text/css'/>
+		<link rel='stylesheet' href='../CSS/admin_fee_details.css' type='text/css'/>
 		<link rel='stylesheet' href='../CSS/button.css' type='text/css'/>
 		<link rel="stylesheet" href="../CSS/fontAwesome/css/font-awesome.css" type="text/css"/>
 	</head>
@@ -30,50 +27,38 @@
 			</div>
 		</div>
 		
-		<div id='detail'>
-			
+		
+		<div class='detail'>
+			<table>
+				<tr>
+					<th>Exam Roll</th>
+					<th>Paid Fee</th>
+					<th>Exam Fee</th>
+					<th>Scholarship</th>
+					<th>Action</th>
+				</tr>
+			<?php
+				$connect = mysqli_connect('localhost','root','','fee_management') or die('Database Connection Error');
+				$select = "select * from payment_details";
+				$data = mysqli_query($connect,$select) or die('Selection Error');
+				while($row = mysqli_fetch_assoc($data))
+				{
+					$roll = $row['exam_roll'];
+					?>
+					<tr>
+						<td><?php echo $row['exam_roll'];?></td>
+						<td><?php echo $row['paid_fee'];?></td>
+						<td><?php echo $row['exam_fee'];?></td>
+						<td><?php echo $row['scholarship'];?></td>
+						<td><a href="<?php echo 'edit_fee.php?exam_roll='.$roll;?>">Edit</a></td>
+			<?php	}
+			?>
+			</table>
+			<div class='btn'>
+			<a href="<?php echo 'input_fee.php';?>">Insert New</a></div>
 		</div>
 		
-		<!--Sign Up Form-->
-		<div class="signup-form">
-			<div class="signup-form-wrapper">
-				<h3>Fee Details of Student</h3>
-				<form action='' method='post' enctype=''>
-					<div class='input-group'>
-						<label>Exam Roll</label>
-						<input type='text' name='roll' placeholder='Exam Roll Here'/>
-						<span class='roll-msg' style='color: red;'></span>
-					</div>
-					<div class="input-group">
-						<label>Paid Fee</label> 
-						<input type='text' name='paid_fee' placeholder="Paid Fee Here"/>
-						<span class="paid-msg" style="color: red;"></span>
-					</div>
-					<div class="input-group">
-						<label>Exam Fee</label> 
-						<input type='text' name='exam_fee' placeholder="Exam Fee Here"/>
-						<span class="Exam-msg" style="color: red;"></span>
-					</div>
-					<div class="input-group">
-						<label>Full Fee</label> 
-						<input type='text' name='full_fee' placeholder="Full Fee Here"/>
-						<span class="full-msg" style="color: red;"></span>
-					</div>
-					<div class="input-group">
-						<label>Scholarship</label> 
-						<input type='text' name='scholarship' placeholder="Scholarship Here"/>
-						<span class="scholarship-msg" style="color: red;"></span>
-					</div>
-					<div class="button">
-						<input type="submit" name="submit" value="Insert"/>
-					</div>
-				</form>
-			</div><!--form-wrapper-->
-		</div><!--form-->
-		
-		
-		<!-- Footer Section -->
-        <footer>
+		<footer>
             <div class="container">
                 <ul class="footer-widget clearfix">
                     <li>

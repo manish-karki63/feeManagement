@@ -102,6 +102,11 @@
 						</div>
 					</div>
 					<div class="input-group">
+						<label>FEE Deposited</label> 
+						<input type='text' name='feede' accept="image/*"/>
+						<span class="feede-msg" style="color: red;"></span>
+					</div>
+					<div class="input-group">
 						<label>Image</label> 
 						<input type='file' name='image' accept="image/*"/>
 						<span class="image-msg" style="color: red;"></span>
